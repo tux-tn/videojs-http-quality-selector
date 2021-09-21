@@ -1,3 +1,10 @@
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/tux-tn/videojs-http-quality-selector/compare/1.2.0...1.2.1) (2021-09-21)
+
+### Bug Fixes
+
+* update cog icon size ([8fb2be5](https://github.com/tux-tn/videojs-http-quality-selector/commit/8fb2be5))
+
 <a name="1.2.0"></a>
 # 1.2.0 (2021-09-21)
 
