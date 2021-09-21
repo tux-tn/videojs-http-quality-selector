@@ -1,4 +1,4 @@
-# videojs-quality-selector
+# videojs-http-quality-selector
 
 Based on [videojs-http-source-selector](https://github.com/jfujita/videojs-http-source-selector)
 VideoJS plugin that leverages videojs-contrib-quality-levels plugin to offer manual user-selectable level selection options for adaptive http streams. 
@@ -17,10 +17,10 @@ Requires videojs-contrib-quality-levels and work only with adaptive http streams
 ## Installation
 
 ```sh
-npm install --save videojs-contrib-quality-levels videojs-quality-selector
+npm install --save videojs-contrib-quality-levels videojs-http-quality-selector
 ```
 
-To include videojs-quality-selector on your website or web application, use any of the following methods.
+To include videojs-http-quality-selector on your website or web application, use any of the following methods.
 
 ### `<script>` Tag
 
@@ -29,17 +29,17 @@ This is the simplest case. Get the script in whatever way you prefer and include
 ```html
 <script src="//path/to/video.min.js"></script>
 <script src="//path/to/videojs-contirb-quality-levels.min.js"></script>
-<script src="//path/to/videojs-quality-selector.min.js"></script>
+<script src="//path/to/videojs-http-quality-selector.min.js"></script>
 <script>
   var player = videojs('my-video');
 
-  player.qualitySelector();
+  player.httpQualitySelector();
 </script>
 ```
 
 ### Browserify/CommonJS
 
-When using with Browserify, install videojs-quality-selector via npm and `require` the plugin as you would any other module.
+When using with Browserify, install videojs-http-quality-selector via npm and `require` the plugin as you would any other module.
 
 ```js
 var videojs = require('video.js');
@@ -48,11 +48,11 @@ var videojs = require('video.js');
 // attached to the `Player.prototype`; so, there is no need to assign it
 // to a variable.
 require('videojs-contirb-quality-levels')
-require('videojs-quality-selector');
+require('videojs-http-quality-selector');
 
 var player = videojs('my-video');
 
-player.qualitySelector();
+player.httpQualitySelector();
 ```
 
 ### RequireJS/AMD
@@ -60,10 +60,10 @@ player.qualitySelector();
 When using with RequireJS (or another AMD library), get the script in whatever way you prefer and `require` the plugin as you normally would:
 
 ```js
-require(['video.js','videojs-contirb-quality-levels', 'videojs-quality-selector'], function(videojs) {
+require(['video.js','videojs-contirb-quality-levels', 'videojs-http-quality-selector'], function(videojs) {
   var player = videojs('my-video');
 
-  player.qualitySelector();
+  player.httpQualitySelector();
 });
 ```
 
@@ -80,21 +80,21 @@ You can configure a bias to lock playback to the highest or lowest resolution by
 #### Low:
 
 ```js
-videojs(video, {qualitySelector: { default: 'low' }});
+videojs(video, {httpQualitySelector: { default: 'low' }});
 
 ```
 
 #### High:
 
 ```js
-videojs(video, {qualitySelector: { default: 'high' }});
+videojs(video, {httpQualitySelector: { default: 'high' }});
 
 ```
 
 #### Auto:
 
 ```js
-videojs(video, {qualitySelector: { default: 'auto' }});
+videojs(video, {httpQualitySelector: { default: 'auto' }});
 
 ```
 ## License

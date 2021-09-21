@@ -1,5 +1,5 @@
 /**
- * css for videojs-quality-selector
+ * css for videojs-http-quality-selector
  * With the default plugins for postcss you can
  * - @import files, they will be inlined during build
  * - not worry about browser prefixes, they will be handled
@@ -9,10 +9,10 @@
  *   https://www.w3.org/TR/css-variables-1/
  */
 
-.vjs-quality-selector {
+.vjs-http-quality-selector {
   display: block;
 }
-.vjs-quality-selector  .vjs-icon-placeholder::before {
+.vjs-http-quality-selector  .vjs-icon-placeholder::before {
   font-family: VideoJS;
   font-weight: normal;
   font-style: normal;

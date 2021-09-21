@@ -1,27 +1,30 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <title>videojs-quality-selector Demo</title>
+  <title>videojs-http-quality-selector Demo</title>
   <link href="node_modules/video.js/dist/video-js.css" rel="stylesheet">
-  <link href="dist/videojs-quality-selector.css" rel="stylesheet">
+  <link href="dist/videojs-http-quality-selector.css" rel="stylesheet">
 </head>
+
 <body>
-  <video id="videojs-quality-selector-player" class="video-js vjs-default-skin" controls>
+  <video id="videojs-http-quality-selector-player" class="video-js vjs-default-skin" controls>
     <source src="//vjs.zencdn.net/v/oceans.mp4" type='video/mp4'>
     <source src="//vjs.zencdn.net/v/oceans.webm" type='video/webm'>
   </video>
   <ul>
     <li><a href="/test/debug.html">Run unit tests in browser.</a></li>
-    
+
   </ul>
   <script src="node_modules/video.js/dist/video.js"></script>
-  <script src="dist/videojs-quality-selector.js"></script>
+  <script src="dist/videojs-http-quality-selector.js"></script>
   <script>
-    (function(window, videojs) {
-      var examplePlayer = window.examplePlayer = videojs('videojs-quality-selector-player');
-      var qualitySelector = window.qualitySelector = examplePlayer.qualitySelector();
+    (function (window, videojs) {
+      var examplePlayer = window.examplePlayer = videojs('videojs-http-quality-selector-player');
+      var httpQualitySelector = window.httpQualitySelector = examplePlayer.httpQualitySelector();
     }(window, window.videojs));
   </script>
 </body>
+
 </html>
