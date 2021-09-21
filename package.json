@@ -1,7 +1,9 @@
 {
   "name": "videojs-http-quality-selector",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "VideoJS plugin that leverages videojs-contrib-quality-levels plugin to offer manual user-selectable level selection options for adaptive http streams. Based on videojs-http-source-selector",
+  "homepage": "https://github.com/tux-tn/videojs-http-quality-selector#readme",
+  "repository": "github:tux-tn/videojs-http-quality-selector",
   "main": "cjs/plugin.js",
   "module": "es/plugin.js",
   "browser": "dist/videojs-http-quality-selector.js",
