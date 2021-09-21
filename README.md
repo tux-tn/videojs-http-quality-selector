@@ -1,6 +1,11 @@
 # videojs-http-quality-selector
 
+[![npm version](https://badge.fury.io/js/videojs-http-quality-selector.svg)](https://badge.fury.io/js/videojs-http-quality-selector)
+[![ci](https://github.com/tux-tn/videojs-http-quality-selector/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/tux-tn/videojs-http-quality-selector/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 Based on [videojs-http-source-selector](https://github.com/jfujita/videojs-http-source-selector)
+
 VideoJS plugin that leverages videojs-contrib-quality-levels plugin to offer manual user-selectable level selection options for adaptive http streams. 
 
 # Difference with http-source-selector plugin
