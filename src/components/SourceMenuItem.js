@@ -16,17 +16,18 @@ class SourceMenuItem extends MenuItem {
     super.handleClick();
 
     const levels = this.player().qualityLevels();
+    const levelsCount = levels.length;
 
-    levels.forEach((level, index) => {
-      if (selected.index === levels.length) {
+    for (let i = 0; i < levelsCount; i++) {
+      if (selected.index === levelsCount) {
         // If this is the Auto option, enable all renditions for adaptive selection
-        levels[index].enabled = true;
-      } else if (selected.index === index) {
-        levels[index].enabled = true;
+        levels[i].enabled = true;
+      } else if (selected.index === i) {
+        levels[i].enabled = true;
       } else {
-        levels[index].enabled = false;
+        levels[i].enabled = false;
       }
-    });
+    }
   }
 
   update() {

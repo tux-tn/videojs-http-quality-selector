@@ -36,10 +36,10 @@ const onPlayerReady = (player, options) => {
    **/
   player.on(['loadedmetadata'], function(e) {
     // hack for plugin idempodency... prevents duplicate menubuttons from being inserted into the player if multiple player.customHttpSourceSelector() functions called.
-    if (player.customHttpSourceSelectorInitialized !== 'undefined' &&
-        player.customHttpSourceSelectorInitialized !== true
+    if (player.customHttpQualityeSelectorInitialized !== 'undefined' &&
+        player.customHttpQualityeSelectorInitialized !== true
     ) {
-      player.customHttpSourceSelectorInitialized = true;
+      player.customHttpQualityeSelectorInitialized = true;
       const controlBar = player.controlBar;
       const fullscreenToggle = controlBar.getChild('fullscreenToggle').el();
 
