@@ -9,26 +9,24 @@ class SourceMenuButton extends MenuButton {
 
     MenuButton.apply(this, arguments);
 
-    const qualityLevels = this.player().qualityLevels();
+    const levels = this.player().qualityLevels();
+    const levelsCount = levels.length;
 
     // Handle options: We accept an options.default value of ( high || low )
     // This determines a bias to set initial resolution selection.
     if (options && options.default) {
       if (options.default === 'low') {
-        qualityLevels.forEach((level, i) => {
-          qualityLevels[i].enabled = i === 0;
-        });
-      } else if ((options.default = 'high')) {
-        qualityLevels.forEach((level, i) => {
-          qualityLevels[i].enabled = i === qualityLevels.length - 1;
-        });
+        for (let i = 0; i < levelsCount; i++) {
+          levels[i].enabled = (i === 0);
+        }
+      } else if (options.default === 'high') {
+        for (let j = 0; j < levelsCount; j++) {
+          levels[j].enabled = (j === (levelsCount - 1));
+        }
       }
     }
 
-    // Bind update to qualityLevels changes
-    this.player()
-      .qualityLevels()
-      .on(['change', 'addqualitylevel'], videojs.bind(this, this.update));
+    levels.on(['change', 'addqualitylevel'], videojs.bind(this, this.update));
   }
 
   createEl() {
@@ -50,34 +48,39 @@ class SourceMenuButton extends MenuButton {
     const menuItems = [];
     const levels = this.player().qualityLevels();
     const labels = [];
+    const levelsCount = levels.length;
 
-    levels.reverse().forEach((level, index) => {
-      const selected = index === levels.selectedIndex;
+    for (let i = 0; i < levelsCount; i++) {
+      const index = levelsCount - (i + 1);
+      const selected = (index === levels.selectedIndex);
 
       // Display height if height metadata is provided with the stream, else use bitrate
+
       let label = `${index}`;
       let sortVal = index;
 
-      if (level.height) {
-        label = `${level.height}p`;
-        sortVal = parseInt(level.height, 10);
-      } else if (level.bitrate) {
-        label = `${Math.floor(level.bitrate / 1e3)} Kbps`;
-        sortVal = parseInt(level.bitrate, 10);
+      if (levels[index].height) {
+        label = `${levels[index].height}p`;
+        sortVal = parseInt(levels[index].height, 10);
+      } else if (levels[index].bitrate) {
+        label = `${Math.floor(levels[index].bitrate / 1e3)} kbps`;
+        sortVal = parseInt(levels[index].bitrate, 10);
       }
 
       // Skip duplicate labels
-      if (labels.indexOf(label) === -1) {
-        labels.push(label);
-        menuItems.push(new SourceMenuItem(this.player_, { label, index, selected, sortVal }));
+      if (labels.indexOf(label) >= 0) {
+        continue;
       }
-    });
+      labels.push(label);
+
+      menuItems.push(new SourceMenuItem(this.player_, { label, index, selected, sortVal }));
+    }
 
     // If there are multiple quality levels, offer an 'auto' option
-    if (levels.length > 1) {
+    if (levelsCount > 1) {
       menuItems.push(new SourceMenuItem(this.player_, {
         label: 'Auto',
-        index: levels.length,
+        index: levelsCount,
         selected: false,
         sortVal: 99999
       }));
