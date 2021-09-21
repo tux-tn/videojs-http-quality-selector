@@ -1,0 +1,20 @@
+/**
+ * css for videojs-quality-selector
+ * With the default plugins for postcss you can
+ * - @import files, they will be inlined during build
+ * - not worry about browser prefixes, they will be handled
+ * - nest selectors. This follows the css specification that is
+ *   currently out on some browsers. See https://tabatkins.github.io/specs/css-nesting/
+ * - custom properties (aka variables) via the var(--var-name) syntax. See
+ *   https://www.w3.org/TR/css-variables-1/
+ */
+
+.vjs-quality-selector {
+  display: block;
+}
+.vjs-quality-selector  .vjs-icon-placeholder::before {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal;
+  content: "\f110";
+}
